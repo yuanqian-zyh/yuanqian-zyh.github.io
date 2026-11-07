@@ -5,8 +5,10 @@
     var ctx = canvas.getContext('2d');
 
     var COUNT = 70;        // 粒子数量
-    var LINK_DIST = 140;   // 连线距离
+    var LINK_DIST = 170;   // 连线距离
     var SPEED = 0.35;      // 移动速度
+    var LINK_ALPHA = 0.45; // 线条最大不透明度
+    var LINE_WIDTH = 1.2;  // 线条粗细
 
     var W = 0, H = 0, particles = [];
 
@@ -36,7 +38,7 @@
 
     function paint(alpha) {
       var dark = document.body.classList.contains('dark-theme');
-      return 'rgba(' + (dark ? '220,220,220,' : '90,90,90,') + alpha + ')';
+      return 'rgba(' + (dark ? '230,230,230,' : '70,70,70,') + alpha + ')';
     }
 
     function frame() {
@@ -52,7 +54,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = paint(0.35);
+        ctx.fillStyle = paint(0.55);
         ctx.fill();
       }
 
@@ -67,8 +69,8 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = paint((1 - d / LINK_DIST) * 0.18);
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = paint((1 - d / LINK_DIST) * LINK_ALPHA);
+            ctx.lineWidth = LINE_WIDTH;
             ctx.stroke();
           }
         }
