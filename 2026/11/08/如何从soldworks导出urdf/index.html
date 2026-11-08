@@ -217,10 +217,10 @@
         <div class="post-content">
             <h1 id="Soldworks中处理坐标系"><a href="#Soldworks中处理坐标系" class="headerlink" title="Soldworks中处理坐标系"></a>Soldworks中处理坐标系</h1><p>我们在soldworks中获得了机器人的装配图后主要关注设置以下东西：</p>
 <blockquote>
-<p>1.坐标系与旋转轴</p>
+<p>坐标系与旋转轴</p>
 </blockquote>
 <blockquote>
-<p>2.机体质量与惯量</p>
+<p>机体质量与惯量</p>
 </blockquote>
 <h2 id="1-设置关节坐标系"><a href="#1-设置关节坐标系" class="headerlink" title="1.设置关节坐标系"></a>1.设置关节坐标系</h2><p>这里以<strong>达妙轮腿机器人</strong>机加版为例。<br>这里需要注意的是，对于坐标系的设置先点后线最后建立坐标系，其中建议机体关节坐标系与世界坐标系一致。<br>如图所示就是设置好的效果：</p>
 <div class="image-box">
@@ -231,18 +231,18 @@
 <p>我这里为了方便就设置，前进方向为x轴，竖直方向为z轴，满足右手原则，所有关节都一致。</p>
 <h2 id="2-机体质量规定"><a href="#2-机体质量规定" class="headerlink" title="2.机体质量规定"></a>2.机体质量规定</h2><p>对于强化学习来说，模型的精确估计十分重要，对于关节旋转几何类的参数我们相对十分好估计，那对于质量惯量一类具体我们该采用什么方法来估计呢，虽然我们在后期可以通过仿真器中的<em><strong>域的随机化</strong></em>来实现，但是对于差别较大的数值这种做法相对不是那么友好。</p>
 <blockquote>
-<p>1.质量覆盖</p>
+<p>质量覆盖</p>
 </blockquote>
 <blockquote>
-<p>2.材质覆盖</p>
+<p>材质覆盖</p>
 </blockquote>
-<h2 id="1-质量覆盖"><a href="#1-质量覆盖" class="headerlink" title="1.质量覆盖"></a>1.质量覆盖</h2><p>如果实物我们已经到手的情况下，我们可以通过称出重量，然后在soldworks中全部覆盖掉。<br><strong>但是注意，质量覆盖仅可以用来观察，不能同步到urdf文件导出，仍要手动修改源码文件</strong><br>如图所示，这里由于达妙机身有电池，开发板，机加工，以及碳纤维等材料混合组装于是我们通过质量覆盖来估计重量</p>
+<h2 id="3-质量覆盖"><a href="#3-质量覆盖" class="headerlink" title="3.质量覆盖"></a>3.质量覆盖</h2><p>如果实物我们已经到手的情况下，我们可以通过称出重量，然后在soldworks中全部覆盖掉。<br><strong>但是注意，质量覆盖仅可以用来观察，不能同步到urdf文件导出，仍要手动修改源码文件</strong><br>如图所示，这里由于达妙机身有电池，开发板，机加工，以及碳纤维等材料混合组装于是我们通过质量覆盖来估计重量</p>
 <div class="image-box">
                 <img src="/images/2026-11-8/QQ20261108-184315.png" alt="质量覆盖" title="图 2：质量覆盖" class="img-large">
                 <p class="image-box-title">图 2：质量覆盖</p>
             </div>
 
-<h2 id="2-材质覆盖"><a href="#2-材质覆盖" class="headerlink" title="2.材质覆盖"></a>2.材质覆盖</h2>
+<h2 id="4-材质覆盖"><a href="#4-材质覆盖" class="headerlink" title="4.材质覆盖"></a>4.材质覆盖</h2>
         </div>
 
         
