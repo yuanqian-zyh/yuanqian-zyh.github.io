@@ -7,3 +7,15 @@
   z-index: -1;
   pointer-events: none;
 }
+.post-content .image-box img.img-small {
+  width: 40%;
+}
+.post-content .image-box img.img-medium {
+  width: 60%;
+}
+.post-content .image-box img.img-large {
+  width: 80%;
+}
+.post-content .image-box img.img-full {
+  width: 100%;
+}
